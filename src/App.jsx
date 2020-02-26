@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 
 export default function App() {
     function convertDec() {
@@ -17,17 +18,24 @@ export default function App() {
             }
         }
 
+
         inputDec.value = parseInt(binaryValue, 2)
 
         invalidInput.style.display = "none"
+
     }
 
     return (
-        <>
-            <p id="invalid-input" style={{'display': 'none'}}>Digite apenas 0 ou 1</p>
+        <div id="form-container">
+            <h1>Convert Binary 2 Decimal</h1>
+            <hr/>
+            <label>Binary</label>
             <input type="text" name="binary" maxLength="8" id="input-binary" />
-            <input type="text" name="decimal" id="input-decimal" disabled />
+            <p id="invalid-input" style={{'display': 'none'}}>Input only 0 or 1</p>
             <button onClick={() => convertDec()}>Convert</button>
-        </>
+            <hr/>
+            <label>Decimal</label>
+            <input type="text" name="decimal" id="input-decimal" disabled />
+        </div>
     )
 }
