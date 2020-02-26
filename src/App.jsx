@@ -10,6 +10,11 @@ export default function App() {
         const binaryValue = inputBin.value
         
         const binArr = binaryValue.split('')
+
+        if(!binArr.length) {
+            invalidInput.style.display = "block"
+            return
+        }
         
         for(let i = 0; i < binArr.length; i++) {
             if(!(binArr[i] === '0' || binArr[i] === '1')) {
@@ -30,7 +35,7 @@ export default function App() {
             <h1>Convert Binary 2 Decimal</h1>
             <hr/>
             <label>Binary</label>
-            <input type="text" name="binary" maxLength="8" id="input-binary" />
+            <input type="text" name="binary" id="input-binary" onKeyPress={() => convertDec()} />
             <p id="invalid-input" style={{'display': 'none'}}>Input only 0 or 1</p>
             <button onClick={() => convertDec()}>Convert</button>
             <hr/>
